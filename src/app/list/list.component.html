@@ -1,0 +1,23 @@
+<div>
+  <ul>
+    <li *ngFor="let item of books">
+      <nav>
+        <a routerLink="product-details">
+          <mat-card>
+
+            <img src="../../assets/livro.jpg">
+
+            <mat-card-title>{{item.title}}</mat-card-title>
+            <mat-card-subtitle>{{item.subtitle}}</mat-card-subtitle>
+
+            <mat-card-content>
+              <strong>
+                {{item.valor}}
+              </strong>
+            </mat-card-content>
+          </mat-card>
+        </a>
+      </nav>
+    </li>
+  </ul>
+</div>

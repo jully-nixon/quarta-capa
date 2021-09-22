@@ -1,0 +1,36 @@
+mat-toolbar {
+	height: 80px;
+	background-color: #000;
+	color: #fff;
+  position: fixed;
+  top: 0;
+
+	h1 {
+		margin: 0 0 0 10px;
+    font-family: 'Scheherazade New', serif;
+	}
+
+	img {
+		width: 40px;
+	}
+}
+
+.header--menu {
+	margin: 0 0 0 30px;
+	a {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 16px;
+		background: none;
+		border: none;
+		color: #fff;
+		margin: 0 0 0 40px;
+	}
+  a:hover {
+    border-bottom: 2px #FFF solid;
+  }
+}
+
+.header--user {
+	margin: 0 0 0 48%;
+	width: 40px;
+}
