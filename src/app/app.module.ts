@@ -13,6 +13,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { ListComponent } from './list/list.component';
 import { MatCardModule } from '@angular/material/card';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+
 import { ProductDetailsComponent } from './product-details/product-details.component';
 
 @NgModule({
@@ -31,7 +33,8 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
     MatMenuModule,
     MatToolbarModule,
     MatCardModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
