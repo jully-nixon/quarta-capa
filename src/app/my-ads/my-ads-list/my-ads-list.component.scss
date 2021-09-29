@@ -1,0 +1,39 @@
+li {
+	list-style-type: none;
+}
+
+.title {
+	margin: 140px 0 0 70px;
+}
+
+.my-ads {
+	margin: 40px 0 0 0;
+	img {
+		width: 100px;
+		margin: 0 50px 0 20px;
+		border-radius: 20px 0 20px 0;
+	}
+
+	select {
+		height: 50px;
+		margin: 40px 0 0 60%;
+    background: none;
+    border-radius: 10px;
+    padding: 10px;
+	}
+}
+
+.list--content {
+	margin: 20px 0 0 0;
+	display: flex;
+	width: 90%;
+	padding: 10px;
+}
+
+.list--title {
+	display: grid;
+}
+
+mat-card-title {
+  font-size: 18px;
+}

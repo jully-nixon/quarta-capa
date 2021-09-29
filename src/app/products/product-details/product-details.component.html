@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<app-header></app-header>
+
+<body>
+  <h2 class="product-title">{{detailsBook.titulo}}</h2>
+
+  <div class="details">
+    <img src="../../assets/livro.jpg" />
+
+    <div>
+      <label><strong>Autor: </strong>{{detailsBook.autor}}</label>
+      <label><strong>Ano: </strong>{{detailsBook.ano}}</label>
+      <label><strong>Isbn: </strong>{{detailsBook.isbn}}</label>
+      <label><strong>Editora: </strong>{{detailsBook.editora}}</label>
+
+      <label><strong>Estado de uso: </strong>{{detailsBook.descricaoEstado}}</label>
+      <label><strong>Disciplina: </strong> {{detailsBook.disciplina}}</label>
+      <label><strong>Ano escolar: </strong>{{detailsBook.anoEscolar}}</label>
+
+      <label>
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+        industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
+        it to make a type specimen book.
+      </label>
+    </div>
+
+    <div class="product-purchase">
+      <h2>R${{detailsBook.valor}}</h2>
+      <button (click)="buyProduct()">
+        <div>
+          <img src="../../assets/whatsapp.png" />
+          <label>Comprar</label>
+        </div>
+      </button>
+
+    </div>
+
+  </div>
+
+</body>
+<app-footer></app-footer>
+</html>

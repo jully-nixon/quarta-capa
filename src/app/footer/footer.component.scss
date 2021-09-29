@@ -1,10 +1,33 @@
-.footer--container {
-background-color: #000;
-padding: 20px 50px 20px 50px;
-display: flex;
-flex-direction: row-reverse;
+.footer {
+  bottom: 0;
+  display: flex;
+  justify-content: flex-end;
+	background-color: #66666647;
+  height: 150px;
+  margin: 100px 0 0 0;
 
-  span {
-    color: #FFF
+  div {
+    display: contents;
+  }
+
+	span {
+		font-family: 'Roboto Condensed', sans-serif;
+		color: #000;
+    font-size: 14px;
+    margin: 110px 0 0 0;
+	}
+
+  img {
+    width: 100px;
+  }
+
+  img#unicap {
+    width: 150px;
+    margin: 0 80px 0 40px;
+  }
+
+  img#porto {
+    width: 150px;
+    margin: 0 160px 0px -50px;
   }
 }

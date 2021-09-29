@@ -1,16 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+	margin: 0;
+	font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 nav a {
-  text-decoration: none;
+	text-decoration: none;
 }
 
-nav a.active {
-  border-bottom: 2px #FFF;
-}
 
 body {
-  background-color: #efefef;
+	background-color: #efefef;
+}
+
+.title {
+	font-family: 'Roboto', sans-serif;
 }

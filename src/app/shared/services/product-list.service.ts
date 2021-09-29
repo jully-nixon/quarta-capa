@@ -8,15 +8,15 @@ export class ProductListService {
   apiUrl: string = '';
 
   constructor(private http: HttpClient) {
-    this.apiUrl = 'http://localhost:8080/';
+    this.apiUrl = 'http://localhost:8080/api/v1';
   }
 
   getListProducts() {
-    return this.http.get(`${this.apiUrl}`);
+    return this.http.get(`${this.apiUrl}/livros`);
   }
 
-  getProductsById() {
-    return this.http.get(`${this.apiUrl}/id`);
+  getProductsById(id: string) {
+    return this.http.get(`${this.apiUrl}/livros/${id}`);
   }
 
 

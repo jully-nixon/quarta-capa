@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { ProductListService } from 'src/app/shared/services/product-list.service';
 
 @Component({
   selector: 'app-product-details',
@@ -7,10 +8,11 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./product-details.component.scss']
 })
 export class ProductDetailsComponent implements OnInit {
-  detailsBook = { numeroCelular: '5581995667654', tituloLivro: '' };
+  detailsBook: any = [];
 
   constructor(
-    private ActivatedRoute: ActivatedRoute
+    private ActivatedRoute: ActivatedRoute,
+    public productListService: ProductListService
   ) { }
 
   ngOnInit(): void {
@@ -24,6 +26,10 @@ export class ProductDetailsComponent implements OnInit {
 
   getIdProduct() {
     const idProduct = this.ActivatedRoute.snapshot.params.id;
+    this.productListService.getProductsById(idProduct).subscribe((res => {
+      this.detailsBook = res;
+      console.log(res)
+    }))
     console.log(idProduct)
   }
 
