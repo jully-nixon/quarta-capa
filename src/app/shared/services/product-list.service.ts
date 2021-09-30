@@ -12,11 +12,15 @@ export class ProductListService {
   }
 
   getListProducts() {
-    return this.http.get(`${this.apiUrl}/livros`);
+    return this.http.get(`${this.apiUrl}/anuncios`);
   }
 
-  getProductsById(id: string) {
-    return this.http.get(`${this.apiUrl}/livros/${id}`);
+  getAdvertsById(id: string) {
+    return this.http.get(`${this.apiUrl}/anuncios/${id}`);
+  }
+
+  getAdvertsByUser(idUser: string) {
+    return this.http.get(`${this.apiUrl}/usuarios/${idUser}`);
   }
 
 

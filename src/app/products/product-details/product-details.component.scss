@@ -11,17 +11,19 @@
 		margin: 0 40px 0 40px;
 	}
 
-	div {
-		max-width: 50%;
-		margin: 0 80px 0 0px;
-		display: grid;
-		label {
-			font-family: 'Scheherazade New', serif;
-		}
-	}
+}
+
+.book-infos {
+  margin: 0px 100px 0 0px;
+  display: grid;
+  width: 600px;
+  label {
+    font-family: 'Scheherazade New', serif;
+  }
 }
 
 .product-purchase {
+  margin: 100px 0 0 0;
 	div {
 		display: flex;
 		cursor: pointer;
@@ -34,7 +36,7 @@
 	h2 {
 		text-align: center;
 		font-size: 30px;
-		margin: 0 0 40px 0;
+		margin: 0 0 60px 0;
 	}
 
 	button {

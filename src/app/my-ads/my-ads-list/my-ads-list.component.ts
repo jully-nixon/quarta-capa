@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductListService } from 'src/app/shared/services/product-list.service';
 
 @Component({
   selector: 'app-my-ads-list',
@@ -6,30 +7,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./my-ads-list.component.scss']
 })
 export class MyAdsListComponent implements OnInit {
-  myAds = [
-    {
-      "id": 1,
-      "title": 'Viver Ciências 6',
-      "subtitle": 'Ciências / 6º Ano',
-      "valor": 'R$50',
-    },
-    {
-      "id": 2,
-      "title": 'Viver Ciências 6',
-      "subtitle": 'Ciências / 6º Ano',
-      "valor": 'R$50',
-    },
-    {
-      "id": 3,
-      "title": 'Viver Ciências 6',
-      "subtitle": 'Ciências / 6º Ano',
-      "valor": 'R$50',
-    }
-  ]
+  myAds: any = {};
 
-  constructor() { }
+  constructor(
+    public productListService: ProductListService
+  ) { }
 
   ngOnInit(): void {
+    this.getMyAds();
+  }
+
+  getMyAds() {
+    let idUser = "d9dabae4-94c9-414c-bdc5-b2bab4fdc580";
+    this.productListService.getAdvertsByUser(idUser).subscribe(res => {
+      this.myAds = res;
+      console.log(this.myAds)
+    }, erro => {
+      console.log(erro.error.message)
+    });
   }
 
 }

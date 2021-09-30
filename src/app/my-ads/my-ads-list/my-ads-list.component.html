@@ -6,16 +6,16 @@
   <h2 class="title">Meus anúncios</h2>
   <div class="my-ads">
     <ul>
-      <li *ngFor="let item of myAds">
+      <li *ngFor="let item of myAds.anuncios">
         <div class="list--content">
           <img src="../../../assets/livro.jpg" />
           <div class="list--title">
-            <mat-card-title>{{item.title}}</mat-card-title>
-            <mat-card-subtitle>{{item.subtitle}}</mat-card-subtitle>
+            <mat-card-title>{{item.titulo}}</mat-card-title>
+            <mat-card-subtitle>{{item.livro.disciplina.nome}}</mat-card-subtitle>
 
             <mat-card-content>
               <strong>
-                {{item.valor}}
+                R${{item.livro.valor}}
               </strong>
             </mat-card-content>
           </div>

@@ -21,16 +21,15 @@ export class ProductDetailsComponent implements OnInit {
 
   buyProduct() {
     window.location.href = `https://api.whatsapp.com/send?phone=${this.detailsBook.numeroCelular}
-      &text=Olá!%20Tenho interesse no livro ${this.detailsBook.tituloLivro}.`;
+      &text=Olá!%20${this.detailsBook.nome},%20tenho interesse no livro ${this.detailsBook.tituloDoLivro}.`;
   }
 
   getIdProduct() {
-    const idProduct = this.ActivatedRoute.snapshot.params.id;
-    this.productListService.getProductsById(idProduct).subscribe((res => {
+    const idAdverts = this.ActivatedRoute.snapshot.params.id;
+    this.productListService.getAdvertsById(idAdverts).subscribe((res => {
       this.detailsBook = res;
       console.log(res)
     }))
-    console.log(idProduct)
   }
 
 }
