@@ -1,0 +1,93 @@
+<div>
+  <form class="form-container" [formGroup]="formularioProduto">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Título do Livro</mat-label>
+      <input matInput formControlName="titulo" name="titulo" />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>ISBN</mat-label>
+      <input matInput formControlName="isbn" name="isbn" />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Autor</mat-label>
+      <input matInput formControlName="autor" name="autor" />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Editora</mat-label>
+      <input matInput formControlName="editora" name="editora" />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Ano</mat-label>
+      <input matInput type="number" formControlName="ano" name="ano" />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Valor</mat-label>
+      <input matInput formControlName="valor" name="valor" />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Qual o estado do livro?</mat-label>
+      <textarea
+        matInput
+        formControlName="descricaoEstado"
+        name="descricaoEstado"
+      ></textarea>
+    </mat-form-field>
+
+    <!-- <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label></mat-label>
+        <input matInput formControlName="" name="" />
+      </mat-form-field> -->
+
+    <!-- <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label></mat-label>
+        <input matInput formControlName="" name="" />
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label></mat-label>
+        <input matInput formControlName="" name="" />
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label></mat-label>
+        <input matInput formControlName="" name="" />
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label></mat-label>
+        <input matInput formControlName="" name="" />
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label></mat-label>
+        <input matInput formControlName="" name="" />
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label></mat-label>
+        <input matInput formControlName="" name="" />
+      </mat-form-field> -->
+
+    <!-- disponivelParaDoacao!: [null, Validators.required] -->
+    <!-- idDisciplina!: [null, Validators.required], -->
+    <!-- anoEscolar!: [null, Validators.required]
+    tituloDoAnuncio!: [null, Validators.required]
+    descricao!: [null, Validators.required]
+    foto!: [null, Validators.required]
+    idUsuario!: [null, Validators.required], -->
+
+
+  </form>
+
+  <div>
+    <button mat-flat-button color="primary">Primary</button>
+    <button mat-stroked-button color="primary">Primary</button>
+  </div>
+
+</div>
