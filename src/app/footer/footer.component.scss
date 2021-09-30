@@ -1,0 +1,31 @@
+.footer {
+	bottom: 0;
+	display: flex;
+	justify-content: flex-end;
+	background-color: #66666647;
+	height: 100px;
+	margin: 100px 0 0 0;
+
+	div {
+		display: contents;
+	}
+
+	span {
+		font-family: 'Roboto Condensed', sans-serif;
+		color: #000;
+		font-size: 14px;
+		margin: 50px 0 0 0;
+	}
+
+	img {
+		width: 100px;
+	}
+
+	img#unicap {
+    margin: 0 100px 0 40px;
+	}
+
+	img#porto {
+    margin: 0 260px 0px -50px;
+	}
+}

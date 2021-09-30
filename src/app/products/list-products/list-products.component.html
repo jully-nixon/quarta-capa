@@ -1,0 +1,16 @@
+<div class="card">
+  <ul>
+    <li *ngFor="let item of books" (click)="showDetails(item.idDoAnuncio)">
+      <img src="../../assets/livro.jpg">
+
+      <h3>{{item.titulo}}</h3>
+      <label>
+        {{item.disciplina}}
+      </label>
+
+      <strong>
+        R${{item.valor}}
+      </strong>
+    </li>
+  </ul>
+</div>

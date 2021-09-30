@@ -1,0 +1,28 @@
+li {
+	list-style-type: none;
+}
+
+ul li {
+	display: inline-table;
+	padding-right: 60px;
+}
+
+.card {
+	width: 100%;
+	img {
+		width: 150px;
+		height: 100%;
+		margin: 0 0 20px 0;
+		border-radius: 20px 0 20px 0;
+	}
+
+	h3,
+	label,
+  strong {
+		font-family: 'Roboto Condensed', sans-serif;
+		max-width: 150px;
+		text-align: center;
+    display: flow-root;
+    margin: 8px 0 0 0;
+	}
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<app-header></app-header>
+
+<body>
+  <h2 class="title">Meus anúncios</h2>
+  <div class="my-ads">
+    <ul>
+      <li *ngFor="let item of myAds.anuncios">
+        <div class="list--content">
+          <img src="../../../assets/livro.jpg" />
+          <div class="list--title">
+            <mat-card-title>{{item.titulo}}</mat-card-title>
+            <mat-card-subtitle>{{item.livro.disciplina.nome}}</mat-card-subtitle>
+
+            <mat-card-content>
+              <strong>
+                R${{item.livro.valor}}
+              </strong>
+            </mat-card-content>
+          </div>
+
+          <select matNativeControl required>
+            <option value="disponivel">Disponível</option>
+            <option value="em negociacao">Em negociação</option>
+            <option value="vendido">Vendido</option>
+          </select>
+        </div>
+
+      </li>
+    </ul>
+  </div>
+
+</body>
+<app-footer></app-footer>
+</html>

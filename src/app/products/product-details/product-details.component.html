@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<app-header></app-header>
+
+<body>
+  <h2 class="product-title">{{detailsBook.titulo}}</h2>
+
+  <div class="details">
+    <img src="../../assets/livro.jpg" />
+
+    <div class="book-infos">
+      <label><strong>Autor: </strong>{{detailsBook.autor}}</label>
+      <label><strong>Ano: </strong>{{detailsBook.ano}}</label>
+      <label><strong>Isbn: </strong>{{detailsBook.isbn}}</label>
+      <label><strong>Editora: </strong>{{detailsBook.editora}}</label>
+
+      <label><strong>Estado de uso: </strong>{{detailsBook.descricaoEstado}}</label>
+      <label><strong>Disciplina: </strong> {{detailsBook.disciplina}}</label>
+      <label><strong>Ano escolar: </strong>{{detailsBook.anoEscolar}}</label>
+
+      <label>
+        {{detailsBook.descricao}}
+      </label>
+    </div>
+
+    <div class="product-purchase">
+      <h2>R${{detailsBook.valor}}</h2>
+      <button (click)="buyProduct()">
+        <div>
+          <img src="../../assets/whatsapp.png" />
+          <label>Comprar</label>
+        </div>
+      </button>
+    </div>
+
+  </div>
+
+</body>
+<app-footer></app-footer>
+
+</html>
