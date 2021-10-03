@@ -6,7 +6,6 @@ import { FooterComponent } from './footer/footer.component';
 import { ListProductsComponent } from './products/list-products/list-products.component';
 import { ProductDetailsComponent } from './products/product-details/product-details.component';
 import { MyAdsListComponent } from './my-ads/my-ads-list/my-ads-list.component';
-import { MyAdsDetailsComponent } from './my-ads/my-ads-details/my-ads-details.component';
 
 //Modulos
 import { NgModule } from '@angular/core';
@@ -19,7 +18,7 @@ import { MatCardModule } from '@angular/material/card';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSelectModule } from '@angular/material/select';
-
+import { NgxSpinnerModule } from "ngx-spinner";
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +28,6 @@ import { MatSelectModule } from '@angular/material/select';
     ListProductsComponent,
     ProductDetailsComponent,
     MyAdsListComponent,
-    MyAdsDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +38,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatCardModule,
     RouterModule,
     HttpClientModule,
-    MatSelectModule
+    MatSelectModule,
+    NgxSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

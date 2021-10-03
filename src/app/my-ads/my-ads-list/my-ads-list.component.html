@@ -7,7 +7,7 @@
   <div class="my-ads">
     <ul>
       <li *ngFor="let item of myAds.anuncios">
-        <div class="list--content">
+        <div class="list--content" (click)="showDetails(item.id)">
           <img src="../../../assets/livro.jpg" />
           <div class="list--title">
             <mat-card-title>{{item.titulo}}</mat-card-title>

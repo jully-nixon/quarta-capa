@@ -9,23 +9,21 @@
     <img src="../../assets/livro.jpg" />
 
     <div class="book-infos">
+      <label><strong>Título: </strong>{{detailsBook.tituloDoLivro}}</label>
       <label><strong>Autor: </strong>{{detailsBook.autor}}</label>
       <label><strong>Ano: </strong>{{detailsBook.ano}}</label>
       <label><strong>Isbn: </strong>{{detailsBook.isbn}}</label>
       <label><strong>Editora: </strong>{{detailsBook.editora}}</label>
 
-      <label><strong>Estado de uso: </strong>{{detailsBook.descricaoEstado}}</label>
+      <label><strong>Estado de uso: </strong>{{detailsBook.descricaoEstadoDoLivro}}</label>
       <label><strong>Disciplina: </strong> {{detailsBook.disciplina}}</label>
       <label><strong>Ano escolar: </strong>{{detailsBook.anoEscolar}}</label>
-
-      <label>
-        {{detailsBook.descricao}}
-      </label>
     </div>
 
     <div class="product-purchase">
+      <label id="user--name">{{detailsBook.nome}}</label>
       <h2>R${{detailsBook.valor}}</h2>
-      <button (click)="buyProduct()">
+      <button (click)="buyProduct()" *ngIf="!hiddenButtonWhatsapp">
         <div>
           <img src="../../assets/whatsapp.png" />
           <label>Comprar</label>
@@ -34,6 +32,10 @@
     </div>
 
   </div>
+
+  <label class="advert--description">
+    {{detailsBook.descricao}}
+  </label>
 
 </body>
 <app-footer></app-footer>
