@@ -29,7 +29,6 @@ export class ListProductsComponent implements OnInit {
         this.spinner.hide();
       }
       this.books = res;
-      console.log(this.books)
     }, erro => {
       console.log(erro.error.message)
     });

@@ -4,14 +4,17 @@
     <li *ngFor="let item of books" (click)="showDetails(item.idDoAnuncio)">
       <img src="../../assets/livro.jpg">
 
-      <h3>{{item.titulo}}</h3>
-      <label>
-        {{item.disciplina}}
-      </label>
+      <div>
+        <h3>{{item.titulo}}</h3>
+        <label>{{item.tituloDoLivro}}</label>
+        <label>
+          {{item.disciplina}}
+        </label>
 
-      <strong>
-        R${{item.valor}}
-      </strong>
+        <strong>
+          R${{item.valor}}
+        </strong>
+      </div>
     </li>
   </ul>
 </div>

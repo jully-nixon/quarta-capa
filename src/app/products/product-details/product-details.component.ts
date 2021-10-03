@@ -35,7 +35,6 @@ export class ProductDetailsComponent implements OnInit {
         this.spinner.hide();
       }
       this.detailsBook = res;
-      console.log(res)
     }))
   }
 
