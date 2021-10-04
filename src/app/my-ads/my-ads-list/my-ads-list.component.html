@@ -22,13 +22,12 @@
           </div>
 
           <select matNativeControl required (change)="updateStatus(item.id, $event)">
-            <option value="" >{{item.anuncioStatus}}</option>
             <option value="DISPONIVEL" *ngIf="item.anuncioStatus != 'DIPOSNIVEL'">DISPONÍVEL</option>
             <option value="EM_NEGOCIACAO" *ngIf="item.anuncioStatus != 'EM_NEGOCIACAO'">EM NEGOCIAÇÃO</option>
             <option value="VENDIDO" *ngIf="item.anuncioStatus != 'VENDIDO'">VENDIDO</option>
           </select>
 
-          <img id="delete" src="../../../assets/delete.png" (click)="alertDeleteAdvert(item.id)"/>
+          <img id="delete" src="../../../assets/delete.svg" (click)="alertDeleteAdvert(item.id)" />
 
         </div>
       </li>

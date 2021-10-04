@@ -1,4 +1,3 @@
-import { IfStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -27,7 +26,7 @@ export class MyAdsListComponent implements OnInit {
 
   async getMyAds() {
     this.spinner.show();
-    let idUser = "70983a59-5a1a-4577-928f-1c3fa7df7907";
+    let idUser = "0ec7406d-16cb-4e92-96d2-37c17a13f794";
     await this.productListService.getAdvertsByUser(idUser).subscribe(res => {
       if (res) {
         this.spinner.hide();

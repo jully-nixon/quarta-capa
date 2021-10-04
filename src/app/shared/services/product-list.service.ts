@@ -30,6 +30,7 @@ export class ProductListService {
   postProduct(product: any) {
     return this.http.post(`${this.apiUrl}/livros`, product);
   }
+
   deleteAdvert(idAdvert: string) {
     return this.http.delete(`${this.apiUrl}/anuncios/${idAdvert}`);
   }

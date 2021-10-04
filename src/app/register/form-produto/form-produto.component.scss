@@ -16,6 +16,8 @@
 .button-row {
   display: table-cell;
   margin: auto;
+  display: flex;
+  justify-content: center;
 }
 
 .button-row button {

@@ -1,10 +1,11 @@
+
 .footer {
 	bottom: 0;
 	display: flex;
 	justify-content: flex-end;
-	background-color: #66666647;
-	height: 100px;
-	margin: 50vh 0 0 0;
+	background-color: #006494;
+  height: 100px;
+  margin-top: calc(40vh + 200px);
 
 	div {
 		display: contents;
@@ -12,9 +13,9 @@
 
 	span {
 		font-family: 'Roboto Condensed', sans-serif;
-		color: #000;
+		color: #fff;
 		font-size: 14px;
-		margin: 50px 0 0 0;
+		margin: 30px 0 0 0;
 	}
 
 	img {
@@ -22,10 +23,10 @@
 	}
 
 	img#unicap {
-    margin: 0 100px 0 40px;
+		margin: 0 100px 0 40px;
 	}
 
 	img#porto {
-    margin: 0 260px 0px -50px;
+		margin: 0 260px 0px -50px;
 	}
 }

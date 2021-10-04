@@ -1,5 +1,10 @@
 li {
 	list-style-type: none;
+	margin: 0 0 60px 0;
+}
+
+ul {
+  margin: 20px 0 0 100px;
 }
 
 ul li {
@@ -29,4 +34,8 @@ ul li {
 	strong {
 		font-size: 18px;
 	}
+
+  #subject {
+    opacity: 60%;
+  }
 }
