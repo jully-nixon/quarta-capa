@@ -24,10 +24,10 @@ export class MyAdsListComponent implements OnInit {
     this.getMyAds();
   }
 
-  async getMyAds() {
+  getMyAds() {
     this.spinner.show();
-    let idUser = "0ec7406d-16cb-4e92-96d2-37c17a13f794";
-    await this.productListService.getAdvertsByUser(idUser).subscribe(res => {
+    let idUser = "217b46eb-d877-44c2-a537-cd7472d358d5";
+    this.productListService.getAdvertsByUser(idUser).subscribe(res => {
       if (res) {
         this.spinner.hide();
       }
@@ -51,7 +51,7 @@ export class MyAdsListComponent implements OnInit {
     this.productListService.changeStatus(id, newStatus).subscribe();
   }
 
-  alertDeleteAdvert(id: string) {
+   alertDeleteAdvert(id: string) {
     Swal.fire({
       title: 'EXCLUIR ANÚNCIO',
       text: 'Deseja realmente excluir o anúncio?',
@@ -63,8 +63,7 @@ export class MyAdsListComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.productListService.deleteAdvert(id).subscribe();
-        Swal.fire('EXCLUÍDO COM SUCESSO!', '', 'success');
-        this.getMyAds();
+        location.reload();
       }
     });
   }
