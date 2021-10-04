@@ -5,7 +5,6 @@ import { FormProdutoComponent } from './register/form-produto/form-produto.compo
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { ListProductsComponent } from './products/list-products/list-products.component';
-import { MyAdsDetailsComponent } from './my-ads/my-ads-details/my-ads-details.component';
 import { MyAdsListComponent } from './my-ads/my-ads-list/my-ads-list.component';
 import { ProductDetailsComponent } from './products/product-details/product-details.component';
 
@@ -27,12 +26,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatSelectModule } from '@angular/material/select';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { RegisterPageComponent } from './register/register-page/register-page.component';
-import { MatCheckboxModule } from '@angular/material/checkbox'; 
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MaterialFileInputModule } from 'ngx-material-file-input';
-import { MatIconModule } from '@angular/material/icon'; 
+import { MatIconModule } from '@angular/material/icon';
 import { MatCurrencyFormatModule } from 'mat-currency-format';
-import { MatDialogModule } from '@angular/material/dialog'; 
-import {MatRadioModule} from '@angular/material/radio'; 
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -42,7 +41,6 @@ import {MatRadioModule} from '@angular/material/radio';
     HeaderComponent,
     HomeComponent,
     ListProductsComponent,
-    MyAdsDetailsComponent,
     MyAdsListComponent,
     ProductDetailsComponent,
     RegisterPageComponent,
