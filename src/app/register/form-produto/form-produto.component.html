@@ -60,9 +60,9 @@
 
     <div class="dadosVenda secaoForm">
       <div class="tituloSecao"><strong>Detalhes da Oferta</strong></div>
-      
+
       <mat-checkbox formControlName="disponivelParaDoacao" name="disponivelParaDoacao" (change)="showValueField()" >Disponível para doação</mat-checkbox>
-      
+
       <mat-form-field class="form-field" appearance="fill" *ngIf="isShown">
         <mat-label>Valor</mat-label>
         <input matInput min="0" type="text" formControlName="valor" name="valor" mvndrMatCurrencyFormat
@@ -78,7 +78,7 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-      
+
 
       <!-- <mat-form-field class="form-field" appearance="fill">
         <mat-label>disponivelParaDoacao</mat-label>
@@ -115,18 +115,18 @@
           [accept]="'image/*'"
           (change)="fileChangeEvent($event)">
         </ngx-mat-file-input>
-        
+
         <!-- <input matInput type="file" formControlName="foto" name="foto" /> -->
       </mat-form-field>
     </div>
 
-    
+
   </form>
 
   <div class="button-row">
     <button mat-flat-button color="primary" (click)="criarProduto()">Criar Anúnico</button>
     <a routerLink="/">
       <button mat-stroked-button color="primary" (click)="cancel()">Cancelar</button>
-    </a> 
+    </a>
   </div>
 </div>

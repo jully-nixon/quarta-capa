@@ -2,8 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators, FormGroupDirective, NgForm } from '@angular/forms';
 import { ProductListService } from '../../shared/services/product-list.service';
 import { FileValidator } from 'ngx-material-file-input';
-import {ErrorStateMatcher} from '@angular/material/core';
+import { ErrorStateMatcher } from '@angular/material/core';
 import { MyErrorStateMatcher } from './input-state-matchers';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { Observable } from 'rxjs';
+import { finalize } from 'rxjs/operators';
+import * as firebase from 'firebase/compat';
 
 interface ValueView {
   value: string,
@@ -16,7 +20,7 @@ interface ValueView {
   templateUrl: './form-produto.component.html',
   styleUrls: ['./form-produto.component.scss'],
   providers: [
-    { provide: ErrorStateMatcher, useClass: MyErrorStateMatcher}
+    { provide: ErrorStateMatcher, useClass: MyErrorStateMatcher }
   ]
 })
 export class FormProdutoComponent implements OnInit {
@@ -30,25 +34,25 @@ export class FormProdutoComponent implements OnInit {
   ];
 
   anoEscolar: ValueView[] = [
-    {value: 'NAO_SE_APLICA', viewValue: 'Não se aplica'},
-    {value: 'PRIMEIRO_ANO_FUNDAMENTAL', viewValue: '1º ano do Fundamental'},
-    {value: 'SEGUNDO_ANO_FUNDAMENTAL', viewValue: '2º ano do Fundamental'},
-    {value: 'TERCEIRO_ANO_FUNDAMENTAL', viewValue: '3º ano do Fundamental'},
-    {value: 'QUARTO_ANO_FUNDAMENTAL', viewValue: '4º ano do Fundamental'},
-    {value: 'QUINTO_ANO_FUNDAMENTAL', viewValue: '5º ano do Fundamental'},
-    {value: 'SEXTO_ANO_FUNDAMENTAL', viewValue: '6º ano do Fundamental'},
-    {value: 'SETIMO_ANO_FUNDAMENTAL', viewValue: '7º ano do Fundamental'},
-    {value: 'OITAVO_ANO_FUNDAMENTAL', viewValue: '8º ano do Fundamental'},
-    {value: 'NONO_ANO_FUNDAMMENTAL', viewValue: '9º ano do Fundamental'},
-    {value: 'PRIMEIRO_ANO_MEDIO', viewValue: '1º no ensino Médio'},
-    {value: 'SEGUNDO_ANO_MEDIO', viewValue: '2º no ensino Médio'},
-    {value: 'TERCEIRO_ANO_MEDIO', viewValue: '3º no ensino Médio'},
+    { value: 'NAO_SE_APLICA', viewValue: 'Não se aplica' },
+    { value: 'PRIMEIRO_ANO_FUNDAMENTAL', viewValue: '1º ano do Fundamental' },
+    { value: 'SEGUNDO_ANO_FUNDAMENTAL', viewValue: '2º ano do Fundamental' },
+    { value: 'TERCEIRO_ANO_FUNDAMENTAL', viewValue: '3º ano do Fundamental' },
+    { value: 'QUARTO_ANO_FUNDAMENTAL', viewValue: '4º ano do Fundamental' },
+    { value: 'QUINTO_ANO_FUNDAMENTAL', viewValue: '5º ano do Fundamental' },
+    { value: 'SEXTO_ANO_FUNDAMENTAL', viewValue: '6º ano do Fundamental' },
+    { value: 'SETIMO_ANO_FUNDAMENTAL', viewValue: '7º ano do Fundamental' },
+    { value: 'OITAVO_ANO_FUNDAMENTAL', viewValue: '8º ano do Fundamental' },
+    { value: 'NONO_ANO_FUNDAMMENTAL', viewValue: '9º ano do Fundamental' },
+    { value: 'PRIMEIRO_ANO_MEDIO', viewValue: '1º no ensino Médio' },
+    { value: 'SEGUNDO_ANO_MEDIO', viewValue: '2º no ensino Médio' },
+    { value: 'TERCEIRO_ANO_MEDIO', viewValue: '3º no ensino Médio' },
   ]
 
   estadoLivro: ValueView[] = [
-    {value: 'NOVO', viewValue: 'Novo'},
-    {value: 'USADO_EM_OTIMA_CONDICAO', viewValue: 'Usado em ótima condição'},
-    {value: 'USADO', viewValue: 'Usado'},
+    { value: 'NOVO', viewValue: 'Novo' },
+    { value: 'USADO_EM_OTIMA_CONDICAO', viewValue: 'Usado em ótima condição' },
+    { value: 'USADO', viewValue: 'Usado' },
   ]
 
   formularioProduto!: FormGroup;
@@ -56,10 +60,11 @@ export class FormProdutoComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private productService: ProductListService,
+    private storage: AngularFireStorage
   ) { }
 
   ngOnInit(): void {
-    this.formularioProduto =this.fb.group({
+    this.formularioProduto = this.fb.group({
       isbn!: [null, [Validators.required]],
       titulo!: [null, Validators.required],
       autor!: [null, Validators.required],
@@ -77,7 +82,6 @@ export class FormProdutoComponent implements OnInit {
     })
 
     const listaDiciplinas = this.productService.getListDisciplina();
-    console.log(listaDiciplinas);
   }
 
   matcher = new MyErrorStateMatcher();
@@ -85,7 +89,7 @@ export class FormProdutoComponent implements OnInit {
   //Value Field functions
   isShown = true;
 
-  showValueField(){
+  showValueField() {
     if (this.isShown == true) {
       this.isShown = false;
       this.formularioProduto.value.valor = 0;
@@ -97,29 +101,39 @@ export class FormProdutoComponent implements OnInit {
   }
 
   //Buttons functions
-  cancel(){
+  cancel() {
     this.formularioProduto.reset();
   }
 
-  criarProduto(){
+  criarProduto() {
     console.log(this.formularioProduto);
 
     // this.productService.postProduct(this.formularioProduto.value);
     // this.formularioProduto.reset();
   }
 
-  fileChangeEvent(event: any) {
+  async fileChangeEvent(event: any) {
+
     const file = event.target.files[0];
     const reader = new FileReader();
+
     reader.readAsDataURL(file);
-    reader.onload = () => {
-      console.log(reader.result);
-    };
-    this.formularioProduto.setValue({
-      foto: reader.result,
-    })
+    const filePath = file.name;
+    const fileRef = this.storage.ref(filePath);
+    const task = this.storage.upload(filePath, file);
+
+    task.snapshotChanges().pipe(
+      finalize(() => {
+        fileRef.getDownloadURL().subscribe(url => {
+          this.formularioProduto.setValue({
+            foto: url,
+          })
+        });
+      })
+    ).subscribe();
+
   }
 
-  
+
 
 }

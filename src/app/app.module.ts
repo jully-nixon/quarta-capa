@@ -8,6 +8,7 @@ import { ListProductsComponent } from './products/list-products/list-products.co
 import { MyAdsListComponent } from './my-ads/my-ads-list/my-ads-list.component';
 import { ProductDetailsComponent } from './products/product-details/product-details.component';
 
+
 //Modulos
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -32,6 +33,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCurrencyFormatModule } from 'mat-currency-format';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatRadioModule } from '@angular/material/radio';
+
+import { environment } from '../environments/environment';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireStorageModule, BUCKET } from '@angular/fire/compat/storage';
 
 @NgModule({
   declarations: [
@@ -71,8 +76,10 @@ import { MatRadioModule } from '@angular/material/radio';
     MatCurrencyFormatModule,
     MatDialogModule,
     MatRadioModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireStorageModule
   ],
-  providers: [],
+  providers: [{ provide: BUCKET, useValue: 'quarta-capa.appspot.com' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
