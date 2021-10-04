@@ -30,5 +30,13 @@ export class ProductListService {
   postProduct(product: any) {
     return this.http.post(`${this.apiUrl}/livros`, product);
   }
+  deleteAdvert(idAdvert: string) {
+    return this.http.delete(`${this.apiUrl}/anuncios/${idAdvert}`);
+  }
+
+  changeStatus(idAdvert: string, newStatus: string) {
+    return this.http.put(`${this.apiUrl}/anuncios/alterarstatus/${idAdvert}`, { anuncioStatusEnum: newStatus });
+  }
+
 
 }

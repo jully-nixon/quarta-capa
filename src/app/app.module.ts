@@ -8,6 +8,8 @@ import { ListProductsComponent } from './products/list-products/list-products.co
 import { MyAdsDetailsComponent } from './my-ads/my-ads-details/my-ads-details.component';
 import { MyAdsListComponent } from './my-ads/my-ads-list/my-ads-list.component';
 import { ProductDetailsComponent } from './products/product-details/product-details.component';
+import { ProductDetailsComponent } from './products/product-details/product-details.component';
+import { MyAdsListComponent } from './my-ads/my-ads-list/my-ads-list.component';
 
 //Modulos
 import { NgModule } from '@angular/core';
@@ -33,6 +35,9 @@ import { MatCurrencyFormatModule } from 'mat-currency-format';
 import { MatDialogModule } from '@angular/material/dialog'; 
 import {MatRadioModule} from '@angular/material/radio'; 
 
+import { HttpClientModule } from '@angular/common/http';
+import { MatSelectModule } from '@angular/material/select';
+import { NgxSpinnerModule } from "ngx-spinner";
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,6 +74,9 @@ import {MatRadioModule} from '@angular/material/radio';
     MatCurrencyFormatModule,
     MatDialogModule,
     MatRadioModule,
+    HttpClientModule,
+    MatSelectModule,
+    NgxSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
