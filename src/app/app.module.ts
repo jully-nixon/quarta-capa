@@ -34,9 +34,18 @@ import { MatCurrencyFormatModule } from 'mat-currency-format';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatRadioModule } from '@angular/material/radio';
 
-import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireStorageModule, BUCKET } from '@angular/fire/compat/storage';
+
+var firebaseConfig = {
+  apiKey: "AIzaSyCQNmCmqcpDYenXgRAhBLGv371zNmQ_ndU",
+  authDomain: "quarta-capa.firebaseapp.com",
+  projectId: "quarta-capa",
+  storageBucket: "quarta-capa.appspot.com",
+  messagingSenderId: "317953469538",
+  appId: "1:317953469538:web:4c8bd850cda305b828353b",
+  measurementId: "G-CVXQKY6ZN5"
+}
 
 @NgModule({
   declarations: [
@@ -76,7 +85,7 @@ import { AngularFireStorageModule, BUCKET } from '@angular/fire/compat/storage';
     MatCurrencyFormatModule,
     MatDialogModule,
     MatRadioModule,
-    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(firebaseConfig),
     AngularFireStorageModule
   ],
   providers: [{ provide: BUCKET, useValue: 'quarta-capa.appspot.com' }],
