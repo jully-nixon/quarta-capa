@@ -31,5 +31,12 @@ export class ProductListService {
     return this.http.put(`${this.apiUrl}/anuncios/alterarstatus/${idAdvert}`, { anuncioStatusEnum: newStatus });
   }
 
+  getListDisciplina() {
+    return this.http.get(`${this.apiUrl}/disciplinas`)
+  }
+
+  postProduct(product: any) {
+    return this.http.post(`${this.apiUrl}/livros`, product);
+  }
 
 }

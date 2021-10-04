@@ -1,0 +1,132 @@
+<div>
+  <form class="form-container" [formGroup]="formularioProduto">
+    <div class="dadosLivro secaoForm">
+      <div class="tituloSecao"><strong>Informações do Livro</strong></div>
+      <mat-form-field class="form-field" appearance="fill">
+        <mat-label>Título do Livro</mat-label>
+        <input matInput formControlName="titulo" name="titulo" />
+        <mat-error *ngIf="this.formularioProduto.controls.titulo.hasError('required')">
+          Este campo não pode ficar vazio.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-field" appearance="fill">
+        <mat-label>ISBN</mat-label>
+        <input matInput
+          formControlName="isbn"
+          name="isbn"
+          type="number"/>
+        <mat-error *ngIf="this.formularioProduto.controls.titulo.hasError('required')">
+          Este campo deve conter 10 ou 13 números.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-field" appearance="fill">
+        <mat-label>Autor</mat-label>
+        <input matInput formControlName="autor" name="autor" />
+      </mat-form-field>
+
+      <mat-form-field class="form-field" appearance="fill">
+        <mat-label>Editora</mat-label>
+        <input matInput formControlName="editora" name="editora" />
+      </mat-form-field>
+
+      <mat-form-field class="form-field" appearance="fill">
+        <mat-label>Ano</mat-label>
+        <mat-select formControlName="ano">
+          <mat-option *ngFor="let ano of anoLivro" [value]="ano">
+            {{ano}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="dadosAluno secaoForm">
+      <div class="tituloSecao"><strong>Informações da Disciplina</strong></div>
+      <mat-form-field class="form-field" appearance="fill">
+        <mat-label>Disciplina</mat-label>
+        <input matInput formControlName="idDisciplina" name="idDisciplina" />
+      </mat-form-field>
+
+      <mat-form-field class="form-field" appearance="fill">
+        <mat-label>Ano Escolar</mat-label>
+        <mat-select formControlName="anoEscolar">
+          <mat-option *ngFor="let anoEsc of anoEscolar" [value]="anoEsc.value">
+            {{anoEsc.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="dadosVenda secaoForm">
+      <div class="tituloSecao"><strong>Detalhes da Oferta</strong></div>
+      
+      <mat-checkbox formControlName="disponivelParaDoacao" name="disponivelParaDoacao" (change)="showValueField()" >Disponível para doação</mat-checkbox>
+      
+      <mat-form-field class="form-field" appearance="fill" *ngIf="isShown">
+        <mat-label>Valor</mat-label>
+        <input matInput min="0" type="text" formControlName="valor" name="valor" mvndrMatCurrencyFormat
+        [allowNegative]="false"
+        [currencyCode]="'BRL'"/>
+      </mat-form-field>
+
+      <mat-form-field class="form-field" appearance="fill">
+        <mat-label>Qual o estado do livro?</mat-label>
+        <mat-select formControlName="descricaoEstado">
+          <mat-option *ngFor="let estado of estadoLivro" [value]="estado.value">
+            {{estado.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      
+
+      <!-- <mat-form-field class="form-field" appearance="fill">
+        <mat-label>disponivelParaDoacao</mat-label>
+        <input
+          matInput
+          formControlName="disponivelParaDoacao"
+          name="disponivelParaDoacao"
+        />
+      </mat-form-field> -->
+    </div>
+
+    <div class="dadosAnuncio secaoForm">
+      <div class="tituloSecao"><strong>Crie seu anúncio</strong></div>
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label>Título</mat-label>
+        <input
+          matInput
+          formControlName="tituloDoAnuncio"
+          name="tituloDoAnuncio"
+        />
+      </mat-form-field>
+
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label>Descrição</mat-label>
+        <input matInput formControlName="descricao" name="descricao" />
+      </mat-form-field>
+
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label>Anexe sua foto de até 2MB</mat-label>
+        <mat-icon matSuffix>attach_file</mat-icon>
+        <ngx-mat-file-input
+          formControlName="foto"
+          placeholder="Anexe sua foto"
+          [accept]="'image/*'"
+          (change)="fileChangeEvent($event)">
+        </ngx-mat-file-input>
+        
+        <!-- <input matInput type="file" formControlName="foto" name="foto" /> -->
+      </mat-form-field>
+    </div>
+
+    
+  </form>
+
+  <div class="button-row">
+    <button mat-flat-button color="primary" (click)="criarProduto()">Criar Anúnico</button>
+    <a routerLink="/">
+      <button mat-stroked-button color="primary" (click)="cancel()">Cancelar</button>
+    </a> 
+  </div>
+</div>

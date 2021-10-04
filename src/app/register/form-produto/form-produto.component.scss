@@ -1,0 +1,47 @@
+.form-container {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  margin: auto;
+}
+
+.form-container mat-form-field{
+  margin-bottom: 10px;
+}
+
+.form-field {
+  width: 100%;
+}
+
+.button-row {
+  display: table-cell;
+  margin: auto;
+}
+
+.button-row button {
+  margin: 8px 8px 8px 0;
+}
+
+.secaoForm {
+  border: 2px solid #cccccc;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 40px;
+}
+
+.secaoForm:focus-within {
+  border: 2px solid #999999;
+}
+
+.tituloSecao {
+  float: left;
+  padding: 0 5px;
+  margin: -30px 0 0 30px;
+  background-color: #efefef;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 16px;
+}
+
+.button-row button {
+  width: 120px;
+}
