@@ -3,7 +3,7 @@ li {
 }
 
 .title {
-	margin: 140px 0 0 70px;
+	margin: 140px 0 0 110px;
 }
 
 .my-ads {
@@ -15,30 +15,37 @@ li {
 	}
 
 	select {
-    height: 50px;
-    margin: 40px 30px 0 150px;
-    -webkit-appearance: none;
-    width: 150px;
-    text-align: center;
-    background-color: #666666d9;
-    color: #fff;
-    font-weight: bold;
-    cursor: pointer;
+		height: 50px;
+		margin: 40px 50px 0 80px;
+		-webkit-appearance: none;
+		width: 150px;
+		text-align: center;
+		background-color: #13293d;
+		color: #fff;
+		cursor: pointer;
 	}
 
-  #delete {
-    width: 35px;
-    height: 25px;
-    margin: 50px 0px 0px 20px;
-    cursor: pointer;
-  }
+	#delete {
+		width: 35px;
+		height: 25px;
+		margin: 50px 0px 0px 20px;
+		cursor: pointer;
+	}
 }
 
 .list--content {
-	margin: 20px 0 0 0;
+	margin: 20px 0 0 40PX;
 	display: flex;
 	width: 90%;
 	padding: 10px;
+
+	img#main  {
+		width: 140px;
+    height: 140px;
+		margin: 0 50px 0 20px;
+		border-radius: 20px 0 20px 0;
+		object-fit: cover;
+	}
 }
 
 .list--title {
@@ -46,6 +53,6 @@ li {
 }
 
 mat-card-title {
-  font-size: 18px;
-  width: 500px;
+	font-size: 18px;
+	width: 500px;
 }

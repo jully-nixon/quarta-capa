@@ -1,4 +1,3 @@
-import { IfStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -25,10 +24,10 @@ export class MyAdsListComponent implements OnInit {
     this.getMyAds();
   }
 
-  async getMyAds() {
+  getMyAds() {
     this.spinner.show();
-    let idUser = "70983a59-5a1a-4577-928f-1c3fa7df7907";
-    await this.productListService.getAdvertsByUser(idUser).subscribe(res => {
+    let idUser = "217b46eb-d877-44c2-a537-cd7472d358d5";
+    this.productListService.getAdvertsByUser(idUser).subscribe(res => {
       if (res) {
         this.spinner.hide();
       }
@@ -52,7 +51,7 @@ export class MyAdsListComponent implements OnInit {
     this.productListService.changeStatus(id, newStatus).subscribe();
   }
 
-  alertDeleteAdvert(id: string) {
+   alertDeleteAdvert(id: string) {
     Swal.fire({
       title: 'EXCLUIR ANÚNCIO',
       text: 'Deseja realmente excluir o anúncio?',
@@ -64,8 +63,7 @@ export class MyAdsListComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.productListService.deleteAdvert(id).subscribe();
-        Swal.fire('EXCLUÍDO COM SUCESSO!', '', 'success');
-        this.getMyAds();
+        location.reload();
       }
     });
   }

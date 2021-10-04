@@ -1,18 +1,21 @@
 mat-toolbar {
 	height: 80px;
-	background-color: #666666d9;
+	background-color: #006494;
 	color: #fff;
 	position: fixed;
 	top: 0;
+  z-index: 999;
 
 	h1 {
 		margin: 0 0 0 10px;
 		font-family: 'Roboto Condensed', sans-serif;
     color: #FFF;
+    font-size: 24px;
 	}
 
-	img {
-		width: 40px;
+	.logo  {
+		width: 44px;
+    height: 44px;
 	}
 }
 
@@ -32,6 +35,7 @@ mat-toolbar {
 }
 
 .header--user {
-	margin: 0 0 0 48%;
-	width: 40px;
+	margin: 0 0 0 42%;
+	width: 36px;
+  height: 36px;
 }

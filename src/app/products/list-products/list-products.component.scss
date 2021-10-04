@@ -1,5 +1,10 @@
 li {
 	list-style-type: none;
+	margin: 0 0 60px 0;
+}
+
+ul {
+  margin: 20px 0 0 100px;
 }
 
 ul li {
@@ -10,10 +15,11 @@ ul li {
 .card {
 	width: 100%;
 	img {
-		width: 150px;
-		height: 100%;
-		margin: 0 0 20px 0;
-		border-radius: 20px 0 20px 0;
+    width: 150px;
+    height: 150px;
+    margin: 0 0 20px 0;
+    border-radius: 20px 0 20px 0;
+    object-fit: cover;
 	}
 
 	h3,
@@ -29,4 +35,8 @@ ul li {
 	strong {
 		font-size: 18px;
 	}
+
+  #subject {
+    opacity: 60%;
+  }
 }

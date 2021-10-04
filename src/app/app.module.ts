@@ -8,6 +8,7 @@ import { ListProductsComponent } from './products/list-products/list-products.co
 import { MyAdsListComponent } from './my-ads/my-ads-list/my-ads-list.component';
 import { ProductDetailsComponent } from './products/product-details/product-details.component';
 
+
 //Modulos
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -33,6 +34,19 @@ import { MatCurrencyFormatModule } from 'mat-currency-format';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatRadioModule } from '@angular/material/radio';
 import { DialogFormImgComponent } from './register/dialog-form-img/dialog-form-img.component';
+
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireStorageModule, BUCKET } from '@angular/fire/compat/storage';
+
+var firebaseConfig = {
+  apiKey: "AIzaSyCQNmCmqcpDYenXgRAhBLGv371zNmQ_ndU",
+  authDomain: "quarta-capa.firebaseapp.com",
+  projectId: "quarta-capa",
+  storageBucket: "quarta-capa.appspot.com",
+  messagingSenderId: "317953469538",
+  appId: "1:317953469538:web:4c8bd850cda305b828353b",
+  measurementId: "G-CVXQKY6ZN5"
+}
 
 @NgModule({
   declarations: [
@@ -73,8 +87,10 @@ import { DialogFormImgComponent } from './register/dialog-form-img/dialog-form-i
     MatCurrencyFormatModule,
     MatDialogModule,
     MatRadioModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireStorageModule
   ],
-  providers: [],
+  providers: [{ provide: BUCKET, useValue: 'quarta-capa.appspot.com' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

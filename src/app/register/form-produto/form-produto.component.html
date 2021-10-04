@@ -66,9 +66,9 @@
 
     <div class="dadosVenda secaoForm">
       <div class="tituloSecao"><strong>Detalhes da Oferta</strong></div>
-      
+
       <mat-checkbox formControlName="disponivelParaDoacao" name="disponivelParaDoacao" (change)="showValueField()" >Disponível para doação</mat-checkbox>
-      
+
       <mat-form-field class="form-field" appearance="fill" *ngIf="isShown">
         <mat-label>Valor</mat-label>
         <input matInput min="0" type="text" formControlName="valor" name="valor" mvndrMatCurrencyFormat
@@ -110,11 +110,11 @@
           placeholder="Anexe sua foto"
           [accept]="'image/*'"> -->
           <!-- (change)="fileChangeEvent($event)"> -->
-        <!-- </ngx-mat-file-input>        
+        <!-- </ngx-mat-file-input>
       </mat-form-field> -->
     </div>
 
-    
+
   </form>
 
   <div class="button-row">
@@ -122,6 +122,6 @@
     <button mat-flat-button color="primary" (click)="openDialog()">Test Dialog</button>
     <a routerLink="/">
       <button mat-stroked-button color="primary" (click)="cancel()">Cancelar</button>
-    </a> 
+    </a>
   </div>
 </div>

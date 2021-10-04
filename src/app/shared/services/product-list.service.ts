@@ -34,13 +34,6 @@ export class ProductListService {
     });;
   }
 
-  // postProductImage(foto: any) {
-  //   this.http.post(`${this.apiUrl}/`, ).subscribe(res => {
-  //   }, erro => {
-  //     console.log(erro.error.message)
-  //   });;
-  // }
-  
   deleteAdvert(idAdvert: string) {
     return this.http.delete(`${this.apiUrl}/anuncios/${idAdvert}`);
   }
