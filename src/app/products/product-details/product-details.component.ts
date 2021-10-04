@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ProductListService } from 'src/app/shared/services/product-list.service';
 
 @Component({
@@ -9,10 +10,12 @@ import { ProductListService } from 'src/app/shared/services/product-list.service
 })
 export class ProductDetailsComponent implements OnInit {
   detailsBook: any = [];
+  hiddenButtonWhatsapp: boolean = false;
 
   constructor(
     private ActivatedRoute: ActivatedRoute,
-    public productListService: ProductListService
+    public productListService: ProductListService,
+    private spinner: NgxSpinnerService
   ) { }
 
   ngOnInit(): void {
@@ -25,10 +28,13 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   getIdProduct() {
+    this.spinner.show();
     const idAdverts = this.ActivatedRoute.snapshot.params.id;
     this.productListService.getAdvertsById(idAdverts).subscribe((res => {
+      if (res) {
+        this.spinner.hide();
+      }
       this.detailsBook = res;
-      console.log(res)
     }))
   }
 

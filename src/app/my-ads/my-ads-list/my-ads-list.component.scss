@@ -15,12 +15,23 @@ li {
 	}
 
 	select {
-		height: 50px;
-		margin: 40px 0 0 60%;
-    background: none;
-    border-radius: 10px;
-    padding: 10px;
+    height: 50px;
+    margin: 40px 30px 0 150px;
+    -webkit-appearance: none;
+    width: 150px;
+    text-align: center;
+    background-color: #666666d9;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
 	}
+
+  #delete {
+    width: 35px;
+    height: 25px;
+    margin: 50px 0px 0px 20px;
+    cursor: pointer;
+  }
 }
 
 .list--content {
@@ -36,4 +47,5 @@ li {
 
 mat-card-title {
   font-size: 18px;
+  width: 500px;
 }

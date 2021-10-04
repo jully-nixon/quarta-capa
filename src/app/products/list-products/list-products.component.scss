@@ -18,11 +18,15 @@ ul li {
 
 	h3,
 	label,
-  strong {
+	strong {
 		font-family: 'Roboto Condensed', sans-serif;
 		max-width: 150px;
 		text-align: center;
-    display: flow-root;
-    margin: 8px 0 0 0;
+		display: flow-root;
+		margin: 8px 0 0 0;
+	}
+
+	strong {
+		font-size: 18px;
 	}
 }

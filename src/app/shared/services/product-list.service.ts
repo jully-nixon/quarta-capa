@@ -23,6 +23,14 @@ export class ProductListService {
     return this.http.get(`${this.apiUrl}/usuarios/${idUser}`);
   }
 
+  deleteAdvert(idAdvert: string) {
+    return this.http.delete(`${this.apiUrl}/anuncios/${idAdvert}`);
+  }
+
+  changeStatus(idAdvert: string, newStatus: string) {
+    return this.http.put(`${this.apiUrl}/anuncios/alterarstatus/${idAdvert}`, { anuncioStatusEnum: newStatus });
+  }
+
   getListDisciplina() {
     return this.http.get(`${this.apiUrl}/disciplinas`)
   }
