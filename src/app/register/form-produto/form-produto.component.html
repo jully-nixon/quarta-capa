@@ -15,9 +15,11 @@
         <input matInput
           formControlName="isbn"
           name="isbn"
-          type="number"/>
+          type="text"
+          pattern="[0-9]*"
+          maxlength="13"/>
         <mat-error *ngIf="this.formularioProduto.controls.titulo.hasError('required')">
-          Este campo deve conter 10 ou 13 números.
+          Este campo deve conter apenas 10 ou 13 números.
         </mat-error>
       </mat-form-field>
 
@@ -45,7 +47,11 @@
       <div class="tituloSecao"><strong>Informações da Disciplina</strong></div>
       <mat-form-field class="form-field" appearance="fill">
         <mat-label>Disciplina</mat-label>
-        <input matInput formControlName="idDisciplina" name="idDisciplina" />
+        <mat-select formControlName="idDisciplina">
+          <mat-option *ngFor="let disciplina of myDisciplinas" [value]="disciplina.id">
+            {{disciplina.nome}}
+          </mat-option>
+        </mat-select>
       </mat-form-field>
 
       <mat-form-field class="form-field" appearance="fill">
@@ -78,21 +84,11 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-      
-
-      <!-- <mat-form-field class="form-field" appearance="fill">
-        <mat-label>disponivelParaDoacao</mat-label>
-        <input
-          matInput
-          formControlName="disponivelParaDoacao"
-          name="disponivelParaDoacao"
-        />
-      </mat-form-field> -->
     </div>
 
     <div class="dadosAnuncio secaoForm">
       <div class="tituloSecao"><strong>Crie seu anúncio</strong></div>
-      <mat-form-field class="form-field" appearance="outline">
+      <mat-form-field class="form-field" appearance="fill">
         <mat-label>Título</mat-label>
         <input
           matInput
@@ -101,23 +97,21 @@
         />
       </mat-form-field>
 
-      <mat-form-field class="form-field" appearance="outline">
+      <mat-form-field class="form-field" appearance="fill">
         <mat-label>Descrição</mat-label>
         <input matInput formControlName="descricao" name="descricao" />
       </mat-form-field>
 
-      <mat-form-field class="form-field" appearance="outline">
+      <!-- <mat-form-field class="form-field" appearance="fill">
         <mat-label>Anexe sua foto de até 2MB</mat-label>
         <mat-icon matSuffix>attach_file</mat-icon>
         <ngx-mat-file-input
           formControlName="foto"
           placeholder="Anexe sua foto"
-          [accept]="'image/*'"
-          (change)="fileChangeEvent($event)">
-        </ngx-mat-file-input>
-        
-        <!-- <input matInput type="file" formControlName="foto" name="foto" /> -->
-      </mat-form-field>
+          [accept]="'image/*'"> -->
+          <!-- (change)="fileChangeEvent($event)"> -->
+        <!-- </ngx-mat-file-input>        
+      </mat-form-field> -->
     </div>
 
     
@@ -125,6 +119,7 @@
 
   <div class="button-row">
     <button mat-flat-button color="primary" (click)="criarProduto()">Criar Anúnico</button>
+    <button mat-flat-button color="primary" (click)="openDialog()">Test Dialog</button>
     <a routerLink="/">
       <button mat-stroked-button color="primary" (click)="cancel()">Cancelar</button>
     </a> 

@@ -1,0 +1,24 @@
+<h2>Cadastro realizado!</h2>
+
+<hr>
+
+<p>Anúnicos com fotos tem mais chances!</p>
+
+<mat-form-field class="form-field" appearance="fill">
+    <mat-label>Anexe sua foto de até 2MB</mat-label>
+    <mat-icon matSuffix>attach_file</mat-icon>
+    <ngx-mat-file-input
+      formControlName="foto"
+      placeholder="Anexe sua foto"
+      [accept]="'image/*'">
+      <!-- (change)="fileChangeEvent($event)"> -->
+    </ngx-mat-file-input>
+</mat-form-field>
+
+<div class="button-row">
+    <button mat-flat-button color="primary">Adicionar</button>
+    <button mat-stroked-button color="primary" (click)="onNoClick()">Não desejo</button>
+    <!-- <a routerLink="/">
+      <button mat-stroked-button color="primary" (click)="cancel()">Cancelar</button>
+    </a> -->
+</div>

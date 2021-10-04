@@ -32,6 +32,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCurrencyFormatModule } from 'mat-currency-format';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatRadioModule } from '@angular/material/radio';
+import { DialogFormImgComponent } from './register/dialog-form-img/dialog-form-img.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { MatRadioModule } from '@angular/material/radio';
     MyAdsListComponent,
     ProductDetailsComponent,
     RegisterPageComponent,
+    DialogFormImgComponent,
   ],
   imports: [
     AppRoutingModule,

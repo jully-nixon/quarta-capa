@@ -28,8 +28,12 @@ export class ProductListService {
   }
 
   postProduct(product: any) {
-    return this.http.post(`${this.apiUrl}/livros`, product);
+    this.http.post(`${this.apiUrl}/anuncios`, product).subscribe(res => {
+    }, erro => {
+      console.log(erro.error.message)
+    });;
   }
+  
   deleteAdvert(idAdvert: string) {
     return this.http.delete(`${this.apiUrl}/anuncios/${idAdvert}`);
   }

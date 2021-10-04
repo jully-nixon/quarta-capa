@@ -4,6 +4,9 @@ import { ProductListService } from '../../shared/services/product-list.service';
 import { FileValidator } from 'ngx-material-file-input';
 import {ErrorStateMatcher} from '@angular/material/core';
 import { MyErrorStateMatcher } from './input-state-matchers';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogFormImgComponent } from '../dialog-form-img/dialog-form-img.component';
 
 interface ValueView {
   value: string,
@@ -21,12 +24,11 @@ interface ValueView {
 })
 export class FormProdutoComponent implements OnInit {
 
-  // readonly maxSize = 2097152; 2MB
-  readonly maxSize = 2621440;
+  myDisciplinas: any = {};
 
-  anoLivro: string[] = [
-    '2021', '2020', '2019', '2018', '2017', '2016', '2015', '2014',
-    '2013', '2012', '2011', '2010', '2009', '2008', '2007', '2006'
+  anoLivro: number[] = [
+    2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014,
+    2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006
   ];
 
   anoEscolar: ValueView[] = [
@@ -56,6 +58,7 @@ export class FormProdutoComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private productService: ProductListService,
+    private dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
@@ -72,12 +75,31 @@ export class FormProdutoComponent implements OnInit {
       anoEscolar!: [null, Validators.required],
       tituloDoAnuncio!: [null, Validators.required],
       descricao!: [null, Validators.required],
-      foto!: [null, [Validators.required, FileValidator.maxContentSize(this.maxSize)]],
-      idUsuario!: ["id-usuário", Validators.required],
+      foto!: ["test"],
+      // foto!: [null, [Validators.required, FileValidator.maxContentSize(this.maxSize)]],
+      idUsuario!: ["5eab5d0e-5d2f-421e-bac6-76eb0c96f0c5", Validators.required],
+      anuncioStatus!: ['DISPONIVEL']
     })
 
-    const listaDiciplinas = this.productService.getListDisciplina();
-    console.log(listaDiciplinas);
+    this.getMyDisciplinas()
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogFormImgComponent, {
+      width: '400px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
+  getMyDisciplinas() {
+    this.productService.getListDisciplina().subscribe(res => {
+      this.myDisciplinas = res;
+    }, erro => {
+      console.log(erro.error.message)
+    });
   }
 
   matcher = new MyErrorStateMatcher();
@@ -102,24 +124,24 @@ export class FormProdutoComponent implements OnInit {
   }
 
   criarProduto(){
-    console.log(this.formularioProduto);
-
-    // this.productService.postProduct(this.formularioProduto.value);
+    this.formularioProduto.patchValue({
+      valor: parseFloat(this.formularioProduto.get('valor')?.value),
+    })
+    this.productService.postProduct(this.formularioProduto.value);
+    console.log(this.formularioProduto.value);
     // this.formularioProduto.reset();
   }
 
-  fileChangeEvent(event: any) {
-    const file = event.target.files[0];
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => {
-      console.log(reader.result);
-    };
-    this.formularioProduto.setValue({
-      foto: reader.result,
-    })
-  }
-
-  
+  // fileChangeEvent(event: any) {
+  //   const file = event.target.files[0];
+  //   const reader = new FileReader();
+  //   reader.readAsDataURL(file);
+  //   reader.onload = () => {
+  //     console.log(reader.result);
+  //   };
+  //   this.formularioProduto.setValue({
+  //     foto: reader.result,
+  //   })
+  // }
 
 }
