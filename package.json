@@ -20,6 +20,10 @@
     "@angular/platform-browser": "~12.2.0",
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
+    "angular-input-masks": "^4.4.1",
+    "mat-currency-format": "0.0.7",
+    "ng2-currency-mask": "^12.0.3",
+    "ngx-material-file-input": "^2.1.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

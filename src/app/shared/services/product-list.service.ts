@@ -23,6 +23,10 @@ export class ProductListService {
     return this.http.get(`${this.apiUrl}/usuarios/${idUser}`);
   }
 
+  getListDisciplina() {
+    return this.http.get(`${this.apiUrl}/disciplinas`)
+  }
+
   postProduct(product: any) {
     return this.http.post(`${this.apiUrl}/livros`, product);
   }
