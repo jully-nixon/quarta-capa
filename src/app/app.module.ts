@@ -37,6 +37,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireStorageModule, BUCKET } from '@angular/fire/compat/storage';
+import { SearchBarComponent } from './home/search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { AngularFireStorageModule, BUCKET } from '@angular/fire/compat/storage';
     MyAdsListComponent,
     ProductDetailsComponent,
     RegisterPageComponent,
+    SearchBarComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -77,7 +79,7 @@ import { AngularFireStorageModule, BUCKET } from '@angular/fire/compat/storage';
     MatDialogModule,
     MatRadioModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireStorageModule
+    AngularFireStorageModule,
   ],
   providers: [{ provide: BUCKET, useValue: 'quarta-capa.appspot.com' }],
   bootstrap: [AppComponent]

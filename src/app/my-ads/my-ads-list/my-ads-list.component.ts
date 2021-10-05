@@ -51,7 +51,7 @@ export class MyAdsListComponent implements OnInit {
     this.productListService.changeStatus(id, newStatus).subscribe();
   }
 
-   alertDeleteAdvert(id: string) {
+  alertDeleteAdvert(id: string) {
     Swal.fire({
       title: 'EXCLUIR ANÚNCIO',
       text: 'Deseja realmente excluir o anúncio?',
@@ -66,6 +66,10 @@ export class MyAdsListComponent implements OnInit {
         location.reload();
       }
     });
+  }
+
+  receiveSearchReturn($event: any) {
+    this.myAds = $event;
   }
 
 }

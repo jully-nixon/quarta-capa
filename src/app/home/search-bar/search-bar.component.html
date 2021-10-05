@@ -1,0 +1,25 @@
+<div>
+    <form class="form-pesquisa" [formGroup]="formularioPesquisa">
+
+        <div class="box">
+            <mat-form-field class="form-field item titulo" appearance="outline">
+                <mat-label>Pesquise o melhor anúncio</mat-label>
+                <input matInput formControlName="tituloAnuncio" name="titulo"/>
+            </mat-form-field>
+
+            <!-- <mat-form-field class="form-field item pesquisar" appearance="outline">
+                <mat-label>Pesquisar por...</mat-label>
+                <mat-select>
+                  <mat-option *ngFor="let opcoes of opcoesPesquisa" [value]="opcoes">
+                    {{opcoes}}
+                  </mat-option>
+                </mat-select>
+             </mat-form-field> -->
+
+             <button mat-mini-fab color="warn" class="item botao" (click)="goSearch()">
+                <mat-icon>search</mat-icon>
+            </button>
+        </div>
+
+    </form>
+</div>

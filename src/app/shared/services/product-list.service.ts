@@ -39,4 +39,8 @@ export class ProductListService {
     return this.http.put(`${this.apiUrl}/anuncios/alterarstatus/${idAdvert}`, { anuncioStatusEnum: newStatus });
   }
 
+  getListProductsSearch(searchText: string) {
+    return this.http.get(`${this.apiUrl}/anuncios/filtro?tituloDoAnuncio=${searchText}`);
+  }
+
 }
