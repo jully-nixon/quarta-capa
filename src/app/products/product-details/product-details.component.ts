@@ -24,7 +24,7 @@ export class ProductDetailsComponent implements OnInit {
 
   buyProduct() {
     window.open(`https://api.whatsapp.com/send?phone=${this.detailsBook.numeroCelular}
-      &text=Olá!%20${this.detailsBook.nome},%20tenho interesse no livro ${this.detailsBook.tituloDoLivro}. '_blank'`);
+      &text=Olá!%20${this.detailsBook.nome},%20tenho interesse no livro ${this.detailsBook.tituloDoLivro}.`);
   }
 
   getIdProduct() {
