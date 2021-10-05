@@ -26,8 +26,8 @@ export class MyAdsListComponent implements OnInit {
 
   getMyAds() {
     this.spinner.show();
-    let idUser = "41bed540-4749-42db-bd3c-f9ecafcaaaf1";
-    this.productListService.getAdvertsByUser(idUser).subscribe(res => {
+    let idUser = "578e5a05-b50c-449a-817d-6f46fc21ffd1";
+        this.productListService.getAdvertsByUser(idUser).subscribe(res => {
       if (res) {
         this.spinner.hide();
       }
