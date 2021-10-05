@@ -8,7 +8,7 @@ export class ProductListService {
   apiUrl: string = '';
 
   constructor(private http: HttpClient) {
-    this.apiUrl = 'http://localhost:8080/api/v1';
+    this.apiUrl = 'https://quartacapa.herokuapp.com';
   }
 
   getListProducts() {
