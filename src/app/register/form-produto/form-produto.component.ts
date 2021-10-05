@@ -48,7 +48,7 @@ export class FormProdutoComponent implements OnInit {
 
   estadoLivro: ValueView[] = [
     { value: 'NOVO', viewValue: 'Novo' },
-    { value: 'USADO_EM_OTIMA_CONDICAO', viewValue: 'Usado em ótima condição' },
+    { value: 'USADO_EM_OTIMAS_CONDICOES', viewValue: 'Usado em ótimas condições' },
     { value: 'USADO', viewValue: 'Usado' },
   ]
 
@@ -75,7 +75,7 @@ export class FormProdutoComponent implements OnInit {
       tituloDoAnuncio!: [null, Validators.required],
       descricao!: [null, Validators.required],
       fotoLivro!: [null, Validators.required],
-      idUsuario!: ["e927c68c-d7ee-4869-ae47-486d21d3fd79", Validators.required],
+      idUsuario!: ["cf1cb644-bd11-4250-938b-57b70fdcf9cf"],
       anuncioStatus!: ['DISPONIVEL']
     })
 
@@ -130,7 +130,9 @@ export class FormProdutoComponent implements OnInit {
     task.snapshotChanges().pipe(
       finalize(() => {
         fileRef.getDownloadURL().subscribe(url => {
-          this.imageUrl = url;
+          if (url) {
+            this.imageUrl = url;
+          }
         });
       })
     ).subscribe();

@@ -26,7 +26,7 @@ export class MyAdsListComponent implements OnInit {
 
   getMyAds() {
     this.spinner.show();
-    let idUser = "b85effc7-6d8c-44af-bf46-01628679c960";
+    let idUser = "cf1cb644-bd11-4250-938b-57b70fdcf9cf";
     this.productListService.getAdvertsByUser(idUser).subscribe(res => {
       if (res) {
         this.spinner.hide();
@@ -51,7 +51,7 @@ export class MyAdsListComponent implements OnInit {
     this.productListService.changeStatus(id, newStatus).subscribe();
   }
 
-   alertDeleteAdvert(id: string) {
+  alertDeleteAdvert(id: string) {
     Swal.fire({
       title: 'EXCLUIR ANÚNCIO',
       text: 'Deseja realmente excluir o anúncio?',

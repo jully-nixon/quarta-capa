@@ -22,7 +22,10 @@
           </div>
 
           <select matNativeControl required (change)="updateStatus(item.id, $event)">
-            <option value="DISPONIVEL" *ngIf="item.anuncioStatus != 'DIPOSNIVEL'">DISPONÍVEL</option>
+            <option value="{{item.anuncioStatus}}" *ngIf="item.anuncioStatus == 'DISPONIVEL' ||
+             item.anuncioStatus == 'EM_NEGOCIACAO' || item.anuncioStatus == 'VENDIDO'">{{item.anuncioStatus}}</option>
+
+            <option value="DISPONIVEL" *ngIf="item.anuncioStatus != 'DISPONIVEL'">DISPONÍVEL</option>
             <option value="EM_NEGOCIACAO" *ngIf="item.anuncioStatus != 'EM_NEGOCIACAO'">EM NEGOCIAÇÃO</option>
             <option value="VENDIDO" *ngIf="item.anuncioStatus != 'VENDIDO'">VENDIDO</option>
           </select>

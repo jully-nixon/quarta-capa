@@ -1,5 +1,26 @@
 <div>
   <form class="form-container" [formGroup]="formularioProduto">
+    <div class="dadosAnuncio secaoForm">
+      <div class="tituloSecao"><strong>Crie seu anúncio</strong></div>
+      <mat-form-field class="form-field" appearance="fill">
+        <mat-label>Título</mat-label>
+        <input matInput formControlName="tituloDoAnuncio" name="tituloDoAnuncio" />
+      </mat-form-field>
+
+      <mat-form-field class="form-field" appearance="fill">
+        <mat-label>Descrição</mat-label>
+        <input matInput formControlName="descricao" name="descricao" />
+      </mat-form-field>
+
+      <mat-form-field class="form-field" appearance="fill">
+        <mat-label>Anexe sua foto de até 2MB</mat-label>
+        <mat-icon matSuffix>attach_file</mat-icon>
+        <ngx-mat-file-input formControlName="fotoLivro" placeholder="Anexe sua foto" [accept]="'image/*'"
+          (change)="fileChangeEvent($event)">
+        </ngx-mat-file-input>
+      </mat-form-field>
+    </div>
+
     <div class="dadosLivro secaoForm">
       <div class="tituloSecao"><strong>Informações do Livro</strong></div>
       <mat-form-field class="form-field" appearance="fill">
@@ -82,29 +103,9 @@
       </mat-form-field>
     </div>
 
-    <div class="dadosAnuncio secaoForm">
-      <div class="tituloSecao"><strong>Crie seu anúncio</strong></div>
-      <mat-form-field class="form-field" appearance="fill">
-        <mat-label>Título</mat-label>
-        <input matInput formControlName="tituloDoAnuncio" name="tituloDoAnuncio" />
-      </mat-form-field>
-
-      <mat-form-field class="form-field" appearance="fill">
-        <mat-label>Descrição</mat-label>
-        <input matInput formControlName="descricao" name="descricao" />
-      </mat-form-field>
-
-      <mat-form-field class="form-field" appearance="fill">
-        <mat-label>Anexe sua foto de até 2MB</mat-label>
-        <mat-icon matSuffix>attach_file</mat-icon>
-        <ngx-mat-file-input formControlName="fotoLivro" placeholder="Anexe sua foto" [accept]="'image/*'"
-          (change)="fileChangeEvent($event)">
-        </ngx-mat-file-input>
-      </mat-form-field>
-    </div>
-
     <div class="button-row">
-      <button id="submit" mat-flat-button color="primary" (click)="criarProduto()">Criar
+      <button id="submit" mat-flat-button color="primary" [disabled]="!formularioProduto.valid || !imageUrl"
+        (click)="criarProduto()">Criar
         Anúnico</button>
       <a routerLink="/">
         <button mat-stroked-button color="primary" (click)="cancel()">Cancelar</button>
