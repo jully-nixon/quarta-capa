@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProductListService } from '../../shared/services/product-list.service';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { MyErrorStateMatcher } from './input-state-matchers';
-import { MatDialog } from '@angular/material/dialog';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { finalize } from 'rxjs/operators';
 
@@ -22,7 +21,7 @@ interface ValueView {
 })
 export class FormProdutoComponent implements OnInit {
 
-  myDisciplinas: any = {};
+  myDisciplinas: any;
   imageUrl: string = '';
   isShown: boolean = true;
 
@@ -58,13 +57,12 @@ export class FormProdutoComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private productService: ProductListService,
-    private dialog: MatDialog,
     private storage: AngularFireStorage
   ) { }
 
   ngOnInit(): void {
     this.formularioProduto = this.fb.group({
-      isbn!: [null, [Validators.required]],
+      isbn!: [null, Validators.required],
       titulo!: [null, Validators.required],
       autor!: [null, Validators.required],
       editora!: [null, Validators.required],
@@ -81,7 +79,7 @@ export class FormProdutoComponent implements OnInit {
       anuncioStatus!: ['DISPONIVEL']
     })
 
-    this.getMyDisciplinas()
+    this.getMyDisciplinas();
   }
 
   getMyDisciplinas() {
@@ -121,7 +119,6 @@ export class FormProdutoComponent implements OnInit {
   }
 
   fileChangeEvent(event: any) {
-
     const file = event.target.files[0];
     const reader = new FileReader();
 
@@ -137,7 +134,6 @@ export class FormProdutoComponent implements OnInit {
         });
       })
     ).subscribe();
-
   }
 
 

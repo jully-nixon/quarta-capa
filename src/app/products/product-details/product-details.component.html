@@ -18,24 +18,28 @@
       <label><strong>Estado de uso: </strong>{{detailsBook.descricaoEstadoDoLivro}}</label>
       <label><strong>Disciplina: </strong> {{detailsBook.disciplina}}</label>
       <label><strong>Ano escolar: </strong>{{detailsBook.anoEscolar}}</label>
+
+      <label><strong>Descrição: </strong>{{detailsBook.descricao}}</label>
     </div>
 
     <div class="product-purchase">
-      <label id="user--name">{{detailsBook.nome}}</label>
-      <h2>R${{detailsBook.valor}}</h2>
+      <h2 *ngIf="!detailsBook.disponivelParaDoacao">R${{detailsBook.valor}}</h2>
+      <img class="donation" *ngIf="detailsBook.disponivelParaDoacao" src="../../../assets/donation.png" />
       <button (click)="buyProduct()" *ngIf="!hiddenButtonWhatsapp">
         <div>
           <img src="../../assets/whatsapp.png" />
-          <label>Comprar</label>
+          <label *ngIf="!detailsBook.disponivelParaDoacao">Comprar</label>
+          <label *ngIf="detailsBook.disponivelParaDoacao">Receber Doação</label>
         </div>
       </button>
+      <label *ngIf="!detailsBook.disponivelParaDoacao">Vendido por: </label>
+      <label *ngIf="detailsBook.disponivelParaDoacao">Doado por: </label>
+      <label id="user--name">{{detailsBook.nome}}</label>
+
     </div>
 
   </div>
 
-  <label class="advert--description">
-    {{detailsBook.descricao}}
-  </label>
 
 </body>
 <app-footer></app-footer>

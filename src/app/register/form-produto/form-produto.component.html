@@ -97,14 +97,14 @@
       <mat-form-field class="form-field" appearance="fill">
         <mat-label>Anexe sua foto de até 2MB</mat-label>
         <mat-icon matSuffix>attach_file</mat-icon>
-        <ngx-mat-file-input formControlName="foto" placeholder="Anexe sua foto" [accept]="'image/*'"
+        <ngx-mat-file-input formControlName="fotoLivro" placeholder="Anexe sua foto" [accept]="'image/*'"
           (change)="fileChangeEvent($event)">
         </ngx-mat-file-input>
       </mat-form-field>
     </div>
 
     <div class="button-row">
-      <button mat-flat-button color="primary" (click)="criarProduto()">Criar
+      <button id="submit" mat-flat-button color="primary" (click)="criarProduto()">Criar
         Anúnico</button>
       <a routerLink="/">
         <button mat-stroked-button color="primary" (click)="cancel()">Cancelar</button>
