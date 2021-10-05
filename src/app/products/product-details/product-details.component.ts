@@ -23,8 +23,8 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   buyProduct() {
-    window.location.href = `https://api.whatsapp.com/send?phone=${this.detailsBook.numeroCelular}
-      &text=Olá!%20${this.detailsBook.nome},%20tenho interesse no livro ${this.detailsBook.tituloDoLivro}.`;
+    window.open(`https://api.whatsapp.com/send?phone=${this.detailsBook.numeroCelular}
+      &text=Olá!%20${this.detailsBook.nome},%20tenho interesse no livro ${this.detailsBook.tituloDoLivro}. '_blank'`);
   }
 
   getIdProduct() {
