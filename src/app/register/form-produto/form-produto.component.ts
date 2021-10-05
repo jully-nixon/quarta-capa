@@ -75,7 +75,7 @@ export class FormProdutoComponent implements OnInit {
       tituloDoAnuncio!: [null, Validators.required],
       descricao!: [null, Validators.required],
       fotoLivro!: [null, Validators.required],
-      idUsuario!: ["d2f24733-01a1-4cf1-bea9-117c2eb17284"],
+      idUsuario!: ["0593d811-10fc-4a4e-97a4-67a6647000e2"],
       anuncioStatus!: ['DISPONIVEL']
     })
 
