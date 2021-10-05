@@ -26,8 +26,8 @@ export class MyAdsListComponent implements OnInit {
 
   getMyAds() {
     this.spinner.show();
-    let idUser = "0593d811-10fc-4a4e-97a4-67a6647000e2";
-        this.productListService.getAdvertsByUser(idUser).subscribe(res => {
+    let idUser = "41bed540-4749-42db-bd3c-f9ecafcaaaf1";
+    this.productListService.getAdvertsByUser(idUser).subscribe(res => {
       if (res) {
         this.spinner.hide();
       }
@@ -63,8 +63,7 @@ export class MyAdsListComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.productListService.deleteAdvert(id).subscribe();
-        // location.reload();
-        this.getMyAds();
+        location.reload();
       }
     });
   }

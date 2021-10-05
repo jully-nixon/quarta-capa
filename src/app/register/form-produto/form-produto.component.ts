@@ -75,7 +75,7 @@ export class FormProdutoComponent implements OnInit {
       tituloDoAnuncio!: [null, Validators.required],
       descricao!: [null, Validators.required],
       fotoLivro!: [null, Validators.required],
-      idUsuario!: ["0593d811-10fc-4a4e-97a4-67a6647000e2"],
+      idUsuario!: ["41bed540-4749-42db-bd3c-f9ecafcaaaf1"],
       anuncioStatus!: ['DISPONIVEL']
     })
 
@@ -115,7 +115,7 @@ export class FormProdutoComponent implements OnInit {
     })
 
     this.productService.postProduct(this.formularioProduto.value);
-    // location.reload();
+    location.reload();
   }
 
   fileChangeEvent(event: any) {
