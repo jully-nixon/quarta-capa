@@ -63,7 +63,8 @@ export class MyAdsListComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.productListService.deleteAdvert(id).subscribe();
-        location.reload();
+        // location.reload();
+        this.getMyAds();
       }
     });
   }

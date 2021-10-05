@@ -115,7 +115,7 @@ export class FormProdutoComponent implements OnInit {
     })
 
     this.productService.postProduct(this.formularioProduto.value);
-    location.reload();
+    // location.reload();
   }
 
   fileChangeEvent(event: any) {
