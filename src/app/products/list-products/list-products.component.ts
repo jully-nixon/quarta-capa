@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ProductListService } from '../../shared/services/product-list.service';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from "ngx-spinner";
-import { AngularFireStorage } from '@angular/fire/compat/storage';
 
 @Component({
   selector: 'app-list',
@@ -16,8 +15,7 @@ export class ListProductsComponent implements OnInit {
   constructor(
     public productListService: ProductListService,
     private router: Router,
-    private spinner: NgxSpinnerService,
-    private storage: AngularFireStorage
+    private spinner: NgxSpinnerService
   ) { }
 
   ngOnInit(): void {

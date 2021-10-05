@@ -4,7 +4,6 @@ import { ProductListService } from '../../shared/services/product-list.service';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { MyErrorStateMatcher } from './input-state-matchers';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogFormImgComponent } from '../dialog-form-img/dialog-form-img.component';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { finalize } from 'rxjs/operators';
 
@@ -24,6 +23,8 @@ interface ValueView {
 export class FormProdutoComponent implements OnInit {
 
   myDisciplinas: any = {};
+  imageUrl: string = '';
+  isShown: boolean = true;
 
   anoLivro: number[] = [
     2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014,
@@ -75,23 +76,12 @@ export class FormProdutoComponent implements OnInit {
       anoEscolar!: [null, Validators.required],
       tituloDoAnuncio!: [null, Validators.required],
       descricao!: [null, Validators.required],
-      foto!: ["test"],
-      // foto!: [null, [Validators.required, FileValidator.maxContentSize(this.maxSize)]],
-      idUsuario!: ["5eab5d0e-5d2f-421e-bac6-76eb0c96f0c5", Validators.required],
+      fotoLivro!: [null, Validators.required],
+      idUsuario!: ["e927c68c-d7ee-4869-ae47-486d21d3fd79", Validators.required],
       anuncioStatus!: ['DISPONIVEL']
     })
 
     this.getMyDisciplinas()
-  }
-
-  openDialog(): void {
-    const dialogRef = this.dialog.open(DialogFormImgComponent, {
-      width: '400px'
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
   }
 
   getMyDisciplinas() {
@@ -100,18 +90,14 @@ export class FormProdutoComponent implements OnInit {
     }, erro => {
       console.log(erro.error.message)
     });
-    const listaDiciplinas = this.productService.getListDisciplina();
   }
 
   matcher = new MyErrorStateMatcher();
 
-  //Value Field functions
-  isShown = true;
-
-  showValueField() {
-    if (this.isShown == true) {
+  showValueField(event: any) {
+    if (event.checked) {
       this.isShown = false;
-      this.formularioProduto.value.valor = 0;
+      this.formularioProduto.patchValue({ valor: 0 });
     }
     else {
       this.isShown = true;
@@ -124,16 +110,17 @@ export class FormProdutoComponent implements OnInit {
     this.formularioProduto.reset();
   }
 
-  criarProduto(){
+  criarProduto() {
     this.formularioProduto.patchValue({
       valor: parseFloat(this.formularioProduto.get('valor')?.value),
+      fotoLivro: this.imageUrl,
     })
+
     this.productService.postProduct(this.formularioProduto.value);
-    console.log(this.formularioProduto.value);
-    // this.formularioProduto.reset();
+    location.reload();
   }
 
-  async fileChangeEvent(event: any) {
+  fileChangeEvent(event: any) {
 
     const file = event.target.files[0];
     const reader = new FileReader();
@@ -146,9 +133,7 @@ export class FormProdutoComponent implements OnInit {
     task.snapshotChanges().pipe(
       finalize(() => {
         fileRef.getDownloadURL().subscribe(url => {
-          this.formularioProduto.setValue({
-            foto: url,
-          })
+          this.imageUrl = url;
         });
       })
     ).subscribe();
